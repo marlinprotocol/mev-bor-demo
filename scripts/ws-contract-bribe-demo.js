@@ -1,5 +1,6 @@
 // ws server - relay side
-const FlashbotsBundleProvider = require("@flashbots/ethers-provider-bundle").FlashbotsBundleProvider
+// const FlashbotsBundleProvider = require("@flashbots/ethers-provider-bundle").FlashbotsBundleProvider
+const FlashbotsBundleProvider = require("./helper").FlashbotsBundleProvider
 const ethers =require("ethers")
 const ethUtil = require('ethereumjs-util')
 const ContractFactory = require("ethers").ContractFactory
