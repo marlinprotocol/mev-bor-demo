@@ -81,8 +81,9 @@ const user = ethers.Wallet.createRandom().connect(provider)
     throw new Error(result.error.message)
   }
   await result.wait()
-  const receipts = await result.receipts()
-  const block = receipts[0].blockNumber
+  // const receipts = await result.receipts()
+  // const block = receipts[0].blockNumber
+  const block = blk
 
   const balanceBefore = await provider.getBalance(faucet.address, block - 1)
   const balanceAfter = await provider.getBalance(faucet.address, block)
