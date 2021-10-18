@@ -1,5 +1,6 @@
 import { ethers, ContractFactory } from 'ethers'
-import { FlashbotsBundleProvider } from '@flashbots/ethers-provider-bundle'
+// import { FlashbotsBundleProvider } from '@flashbots/ethers-provider-bundle'
+import { FlashbotsBundleProvider } from './helper'
 // @ts-ignore
 import solc from 'solc'
 
