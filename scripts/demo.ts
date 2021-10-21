@@ -2,7 +2,8 @@ import { ethers, Wallet } from 'ethers'
 // import { FlashbotsBundleProvider } from '@flashbots/ethers-provider-bundle'
 import { FlashbotsBundleProvider } from './helper'
 
-const FAUCET = '0x133be114715e5fe528a1b8adf36792160601a2d63ab59d1fd454275b31328791'
+// const FAUCET = '0x133be114715e5fe528a1b8adf36792160601a2d63ab59d1fd454275b31328791'
+const FAUCET = '0x9d85b3fdf4c1d20653441ec0ac8314fab246256127d40d2943e50da7a9b03227'
 const DUMMY_RECEIVER = '0x1111111111111111111111111111111111111111'
 // connect to the simple provider
 let provider = new ethers.providers.JsonRpcProvider('http://localhost:8545')

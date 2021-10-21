@@ -35,7 +35,8 @@ const COMPILED = OUTPUT.contracts['Bribe.sol']
 const ABI = COMPILED.Bribe.abi
 const BIN = '0x' + COMPILED.Bribe.evm.bytecode.object
 
-const FAUCET = '0x133be114715e5fe528a1b8adf36792160601a2d63ab59d1fd454275b31328791'
+// const FAUCET = '0x133be114715e5fe528a1b8adf36792160601a2d63ab59d1fd454275b31328791'
+const FAUCET = '0x9d85b3fdf4c1d20653441ec0ac8314fab246256127d40d2943e50da7a9b03227'
 // connect to the simple provider
 let provider = new ethers.providers.JsonRpcProvider('http://localhost:8545')
 
@@ -47,7 +48,8 @@ const user = ethers.Wallet.createRandom().connect(provider)
 ;(async () => {
   // wrap it with the mev-geth provider
   const authSigner = ethers.Wallet.createRandom()
-  const flashbotsProvider = await FlashbotsBundleProvider.create(provider, authSigner, 'http://localhost:8545', 5465)
+  // const flashbotsProvider = await FlashbotsBundleProvider.create(provider, authSigner, 'http://localhost:8545', 5465)
+  const flashbotsProvider = await FlashbotsBundleProvider.create(provider, authSigner, 'http://localhost:8000')
 
   // fund the user with some Ether from the coinbase address
   console.log('Funding account...this may take a while due to DAG generation in the PoW testnet')
@@ -76,7 +78,8 @@ const user = ethers.Wallet.createRandom().connect(provider)
 
   console.log('Submitting bundle')
   const blk = await provider.getBlockNumber()
-  const result = await flashbotsProvider.sendBundle(txs, blk + 5)
+  // const result = await flashbotsProvider.sendBundle(txs, blk + 5)
+  const result = await flashbotsProvider.sendBundle(txs, blk + 1)
   if ('error' in result) {
     throw new Error(result.error.message)
   }

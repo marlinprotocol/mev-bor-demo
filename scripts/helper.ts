@@ -216,8 +216,8 @@ export class FlashbotsBundleProvider extends providers.JsonRpcProvider {
       revertingTxHashes: opts?.revertingTxHashes
     }
 
-    // const request = JSON.stringify(this.prepareBundleRequest('eth_sendBundle', [params]))
-    const request = JSON.stringify(this.prepareBundleRequest('mev_sendBundle', [params]))
+    const request = JSON.stringify(this.prepareBundleRequest('eth_sendBundle', [params]))
+    // const request = JSON.stringify(this.prepareBundleRequest('mev_sendBundle', [params]))
     const response = await this.request(request)
     if (response.error !== undefined && response.error !== null) {
       return {
@@ -421,8 +421,8 @@ export class FlashbotsBundleProvider extends providers.JsonRpcProvider {
     const params: RpcParams = [
       { txs: signedBundledTransactions, blockNumber: evmBlockNumber, stateBlockNumber: evmBlockStateNumber, timestamp: blockTimestamp }
     ]
-    // const request = JSON.stringify(this.prepareBundleRequest('eth_callBundle', params))
-    const request = JSON.stringify(this.prepareBundleRequest('mev_callBundle', params))
+    const request = JSON.stringify(this.prepareBundleRequest('eth_callBundle', params))
+    // const request = JSON.stringify(this.prepareBundleRequest('mev_callBundle', params))
     const response = await this.request(request)
     if (response.error !== undefined && response.error !== null) {
       return {
@@ -457,8 +457,8 @@ export class FlashbotsBundleProvider extends providers.JsonRpcProvider {
   }
 
   private prepareBundleRequest(
-    // method: 'eth_callBundle' | 'eth_sendBundle' | 'flashbots_getUserStats' | 'flashbots_getBundleStats',
-    method: 'mev_callBundle' | 'mev_sendBundle' | 'flashbots_getUserStats' | 'flashbots_getBundleStats',
+    method: 'eth_callBundle' | 'eth_sendBundle' | 'flashbots_getUserStats' | 'flashbots_getBundleStats',
+    // method: 'mev_callBundle' | 'mev_sendBundle' | 'flashbots_getUserStats' | 'flashbots_getBundleStats',
     params: RpcParams
   ) {
     return {
